@@ -1,0 +1,151 @@
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/NiceBBMBThai12/NBTScript/main/UI-Library-Robloxx"))()
+local window = library:Win()
+local tap1 = window:addtap("Vedroz main")
+local tap2 = window:addtap("Made by Trigzzy#8305")
+local page1 = tap1:addpage()
+local page2 = tap1:addpage()
+local page3 = tap1:addpage()
+local page4 = tap1:addpage()
+page1:Ti("Player")
+
+page1:Toggle("Walkspeed dont come off",nil, function(value)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
+end)
+
+page1:Button("infinite jump", function(value)
+    local InfiniteJumpEnabled = true
+    game:GetService("UserInputService").JumpRequest:connect(function()
+        if InfiniteJumpEnabled then
+            game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+        end
+    end)
+end)
+
+page1:Button1("Btools", function(value)
+    Instance.new("HopperBin", game.Players.LocalPlayer.Backpack).BinType = 4
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 20
+end)
+
+local getdrop = page1:DropDown("Name DropDown","Name",{"a","b","c"}, function(value)
+
+end)
+
+local getlable = page1:Label("Text Label")
+
+local getslider = page1:Slder("Slider",1,100,8, function(value)
+    print(value)
+end)
+
+page4:Ti("Player")
+
+page4:Toggle("This does nothing",nil, function(value)
+
+end)
+
+page4:Button("Teleport", function(value)
+    mouse = game.Players.LocalPlayer:GetMouse()
+    tool = Instance.new("Tool")
+    tool.RequiresHandle = false
+    tool.Name = "Click Teleport"
+    tool.Activated:connect(function()
+    local pos = mouse.Hit+Vector3.new(0,2.5,0)
+    pos = CFrame.new(pos.X,pos.Y,pos.Z)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
+    end)
+    tool.Parent = game.Players.LocalPlayer.Backpack
+end)
+
+page4:Button1("fly", function(value)
+    loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\40\39\104\116\116\112\115\58\47\47\103\105\115\116\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\109\101\111\122\111\110\101\89\84\47\98\102\48\51\55\100\102\102\57\102\48\97\55\48\48\49\55\51\48\52\100\100\100\54\55\102\100\99\100\51\55\48\47\114\97\119\47\101\49\52\101\55\52\102\52\50\53\98\48\54\48\100\102\53\50\51\51\52\51\99\102\51\48\98\55\56\55\48\55\52\101\98\51\99\53\100\50\47\97\114\99\101\117\115\37\50\53\50\48\120\37\50\53\50\48\102\108\121\37\50\53\50\48\50\37\50\53\50\48\111\98\102\108\117\99\97\116\111\114\39\41\44\116\114\117\101\41\41\40\41\10\10")()
+end)
+
+local getdrop = page4:DropDown("Name DropDown","Name",{"a","b","c"}, function(value)
+    print(value)
+end)
+
+local getlable = page4:Label("Text Label")
+
+local getslider = page4:Slder("Slider",1,100,8, function(value)
+    print(value)
+end)
+
+page2:Ti("Commands")
+
+page2:Button("Esp", function(value)
+    local color = BrickColor.new(50,0,250)
+    local transparency = .8
+    
+    local Players = game:GetService("Players")
+    local function _ESP(c)
+      repeat wait() until c.PrimaryPart ~= nil
+      for i,p in pairs(c:GetChildren()) do
+        if p.ClassName == "Part" or p.ClassName == "MeshPart" then
+          if p:FindFirstChild("shit") then p.shit:Destroy() end
+          local a = Instance.new("BoxHandleAdornment",p)
+          a.Name = "shit"
+          a.Size = p.Size
+          a.Color = color
+          a.Transparency = transparency
+          a.AlwaysOnTop = true    
+          a.Visible = true    
+          a.Adornee = p
+          a.ZIndex = true    
+    
+        end
+      end
+    end
+    local function ESP()
+      for i,v in pairs(Players:GetChildren()) do
+        if v ~= game.Players.LocalPlayer then
+          if v.Character then
+            _ESP(v.Character)
+          end
+          v.CharacterAdded:Connect(function(chr)
+            _ESP(chr)
+          end)
+        end
+      end
+      Players.PlayerAdded:Connect(function(player)
+        player.CharacterAdded:Connect(function(chr)
+          _ESP(chr)
+        end)  
+      end)
+    end
+    ESP()
+end)
+
+page2:Button("fling people", function(value)
+    loadstring(game:HttpGet("https://pastebin.com/raw/saMtiek2",true))()
+end)
+
+page2:Button("Bang over 18+", function(value)
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/manimcool21/bang/main/Protected%20(27).lua'))()
+end)
+
+page2:Button("fling people", function(value)
+    loadstring(game:HttpGet("https://pastebin.com/raw/s9HABSp2",true))();
+end)
+
+page2:Button("Legacy hub i think", function(value)
+    loadstring(game:GetObjects("rbxassetid://1683559539")[1].Source)()
+end)
+
+page3:Ti("Autofarms")
+
+page3:Button("Jailbreak ", function(value)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/wawsdasdacx/ohascriptnrrewading/main/jbsaxcriptidk1"))();
+end)
+
+page3:Button("Adopt me ", function(value)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Asadisapro/adopt-me-farm/main/farm",true))();
+end)
+
+page3:Button("Mad City ", function(value)
+    loadstring(game:HttpGet("https://gist.githubusercontent.com/TurkOyuncu99/811e25ec8cfcdaa9ae7026353288783c/raw/4b073a5c1a0a4e2ed7e2304c2e769eb440a371a9/h", true))()
+end)
+
+page3:Button("Murder Mystery 2 ", function(value)
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/Ethanoj1/EclipseMM2/master/Script'),true))()
+end)
+
+--made by Trigzzy#8305 Discord:https://discord.gg/96DKrytwnY
